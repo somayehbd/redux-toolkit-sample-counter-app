@@ -3,18 +3,24 @@ actor       User                        as user
 entity      HomeComponent               as homeComponent
 entity      ShoppingCartComponent       as ShoppingCart
 entity      ShoppingCartIconComponent   as ShoppingCartIcon
-database    Database_store              as database
-database    CounterSlice                as counterSlice
+database    ReduxStore                  as database
+database    CounterSliceWithAction      as counterSliceWithAction
 
 group send data and update the state process
-    user            -> homeComponent            : User click on button +1
-    homeComponent   -> database                 : sends **action and reducer** by **useDispatch**
-    database        -> counterSlice             : {type:increment, action:10} sends actions and reducer to counterSlice
-    counterSlice    -> counterSlice             : reducer update the state
+    user                        -> homeComponent            : User click on **+1 button**
+    homeComponent               -> database                 : Sends **action and reducer** by **useDispatch**
+    note right
+        Action: {
+            type: 'incrementWithAction',
+            payload: 10
+        }
+    end note
+    database                    -> counterSliceWithAction   : Sends actions and reducer to counterSlice
+    counterSliceWithAction      -> counterSliceWithAction   : State = State + Action.Payload
 end
 
 group subscribe process
-    counterSlice    -> ShoppingCartIcon         : push newState to subscriber component
-    counterSlice    -> ShoppingCart             : push newState to subscriber component
+    counterSliceWithAction      -> ShoppingCartIcon         : Push newState to subscriber component
+    counterSliceWithAction      -> ShoppingCart             : Push newState to subscriber component
 end
 @enduml
