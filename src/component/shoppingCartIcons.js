@@ -14,11 +14,13 @@ function ShoppingCartIcons() {
         border: '1px solid #bbb'
     };
     const counter = useSelector(state => state.counterSlice.value);
-
+    const counterWithAction = useSelector(state => state.counterSliceWithAction.value);
     return (
         <>
             <h3>Shopping Card Icon</h3>
             <div style={styles}>{counter}</div>
+              <h3>Shopping Card Icon</h3>
+            <div style={styles}>{counterWithAction}</div>
         </>
     )
 }

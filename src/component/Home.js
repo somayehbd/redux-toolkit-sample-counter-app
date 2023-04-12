@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { incremented, decremented } from '../redux/counterSlice'
+import { incrementedWithAction, decrementedWithAction } from '../redux/counterSliceWithAction'
 
 function Home() {
     const dispatch = useDispatch();
@@ -22,6 +23,9 @@ function Home() {
             <h3>Home Component</h3>
             <button style={styles} onClick={() => dispatch(decremented())}>-1</button>
             <button style={styles} onClick={() => dispatch(incremented())}>+1</button>
+            <h3>Home Component</h3>
+            <button style={styles} onClick={() => dispatch(decrementedWithAction(10))}>-10</button>
+            <button style={styles} onClick={() => dispatch(incrementedWithAction(10))}>+10</button>
         </>
     )
 }
