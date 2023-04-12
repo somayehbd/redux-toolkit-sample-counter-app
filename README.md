@@ -9,15 +9,16 @@ This is a simple counter application built using Redux. The app consists of thre
 
 # Installation
 
-`npm install @reduxjs/toolkit`
+**`npm install @reduxjs/toolkit`**
 
-`npm install react-redux`
+**`npm install react-redux`**
 
 # Source Code
 
 ## Store
+**create store.js**
 ```js
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 import counterSlice from './counterSlice';
 
 const store = configureStore({
@@ -30,6 +31,7 @@ export default store;
 ```
 
 ## Slice
+**create counterSlice.js**
 ```js
 import { createSlice } from '@reduxjs/toolkit'
 
@@ -73,6 +75,7 @@ export default App;
 ```
 
 ## HomeComponent
+***send data to store***
 ```js
 import { useDispatch } from 'react-redux';
 import { incremented, decremented } from '../redux/counterSlice'
@@ -92,6 +95,7 @@ export default Home;
 ```
 
 ## ShoppingCard
+***subscriber componenets***
 ```js
 import { useSelector } from 'react-redux';
 
@@ -109,6 +113,7 @@ export default ShoppingCart;
 ```
 
 ## ShoppingCardIcon
+***subscriber componenets***
 ```js
 import { useSelector } from 'react-redux';
 
@@ -124,12 +129,5 @@ function ShoppingCartIcons() {
 }
 export default ShoppingCartIcons;
 ```
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
 # Sources
 - [Getting Started with Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
