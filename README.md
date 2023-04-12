@@ -1,6 +1,6 @@
 # A simple counter app using Redux Toolkit
 
-![screenshot](./docs/screenshot.png)
+![screenshot](./docs/sample_screenshot.png)
 
 This is a simple counter application built using Redux. The app consists of three main components: Home, ShoppingCart, and ShoppingCartIcons. The Home component is responsible for sending data to the counterSlice of the Redux store, which contains the current value of the counter. The two buttons in the Home component, labeled "+1" and "-1", are used to increase and decrease the value of the counter.
 
