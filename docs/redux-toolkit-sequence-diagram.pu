@@ -1,0 +1,20 @@
+@startuml
+actor       User                        as user
+entity      HomeComponent               as homeComponent
+entity      ShoppingCartComponent       as ShoppingCart
+entity      ShoppingCartIconComponent   as ShoppingCartIcon
+database    Database_store              as database
+database    CounterSlice                as counterSlice
+
+group send data and update the state process
+    user            -> homeComponent            : User click on button +1
+    homeComponent   -> database                 : sends **action and reducer** by **useDispatch**
+    database        -> counterSlice             : {type:increment, action:10} sends actions and reducer to counterSlice
+    counterSlice    -> counterSlice             : reducer update the state
+end
+
+group subscribe process
+    counterSlice    -> ShoppingCartIcon         : push newState to subscriber component
+    counterSlice    -> ShoppingCart             : push newState to subscriber component
+end
+@enduml
